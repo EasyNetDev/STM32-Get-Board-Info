@@ -341,14 +341,92 @@ void GetSystemClock(void)
       case RCC_PLLP_DIV2:
         Serial.println("RCC_PLLP_DIV2");
         break;
+      case RCC_PLLP_DIV3:
+        Serial.println("RCC_PLLP_DIV3");
+        break;
       case RCC_PLLP_DIV4:
         Serial.println("RCC_PLLP_DIV4");
+        break;
+      case RCC_PLLP_DIV5:
+        Serial.println("RCC_PLLP_DIV5");
         break;
       case RCC_PLLP_DIV6:
         Serial.println("RCC_PLLP_DIV6");
         break;
+      case RCC_PLLP_DIV7:
+        Serial.println("RCC_PLLP_DIV7");
+        break;
       case RCC_PLLP_DIV8:
         Serial.println("RCC_PLLP_DIV8");
+        break;
+      case RCC_PLLP_DIV9:
+        Serial.println("RCC_PLLP_DIV9");
+        break;
+      case RCC_PLLP_DIV10:
+        Serial.println("RCC_PLLP_DIV10");
+        break;
+      case RCC_PLLP_DIV11:
+        Serial.println("RCC_PLLP_DIV11");
+        break;
+      case RCC_PLLP_DIV12:
+        Serial.println("RCC_PLLP_DIV12");
+        break;
+      case RCC_PLLP_DIV13:
+        Serial.println("RCC_PLLP_DIV13");
+        break;
+      case RCC_PLLP_DIV14:
+        Serial.println("RCC_PLLP_DIV14");
+        break;
+      case RCC_PLLP_DIV15:
+        Serial.println("RCC_PLLP_DIV15");
+        break;
+      case RCC_PLLP_DIV16:
+        Serial.println("RCC_PLLP_DIV16");
+        break;
+      case RCC_PLLP_DIV17:
+        Serial.println("RCC_PLLP_DIV17");
+        break;
+      case RCC_PLLP_DIV18:
+        Serial.println("RCC_PLLP_DIV18");
+        break;
+      case RCC_PLLP_DIV19:
+        Serial.println("RCC_PLLP_DIV19");
+        break;
+      case RCC_PLLP_DIV20:
+        Serial.println("RCC_PLLP_DIV20");
+        break;
+      case RCC_PLLP_DIV21:
+        Serial.println("RCC_PLLP_DIV21");
+        break;
+      case RCC_PLLP_DIV22:
+        Serial.println("RCC_PLLP_DIV22");
+        break;
+      case RCC_PLLP_DIV23:
+        Serial.println("RCC_PLLP_DIV23");
+        break;
+      case RCC_PLLP_DIV24:
+        Serial.println("RCC_PLLP_DIV24");
+        break;
+      case RCC_PLLP_DIV25:
+        Serial.println("RCC_PLLP_DIV25");
+        break;
+      case RCC_PLLP_DIV26:
+        Serial.println("RCC_PLLP_DIV26");
+        break;
+      case RCC_PLLP_DIV27:
+        Serial.println("RCC_PLLP_DIV27");
+        break;
+      case RCC_PLLP_DIV28:
+        Serial.println("RCC_PLLP_DIV28");
+        break;
+      case RCC_PLLP_DIV29:
+        Serial.println("RCC_PLLP_DIV29");
+        break;
+      case RCC_PLLP_DIV30:
+        Serial.println("RCC_PLLP_DIV30");
+        break;
+      case RCC_PLLP_DIV31:
+        Serial.println("RCC_PLLP_DIV31");
         break;
       default:
         Serial.print("UNKNOWN, value: ");
@@ -357,12 +435,50 @@ void GetSystemClock(void)
     }
 
     Serial.print("  > PLLQ: Division factor for OTG FS, SDIO and RNG clocks : ");
-    Serial.println(RCC_OscInitStruct.PLL.PLLQ);
+    switch(RCC_OscInitStruct.PLL.PLLQ)
+    {
+      case RCC_PLLQ_DIV2:
+        Serial.println("RCC_PLLQ_DIV2");
+        break;
+      case RCC_PLLQ_DIV4:
+        Serial.println("RCC_PLLQ_DIV4");
+        break;
+      case RCC_PLLQ_DIV6:
+        Serial.println("RCC_PLLQ_DIV6");
+        break;
+      case RCC_PLLQ_DIV8:
+        Serial.println("RCC_PLLQ_DIV8");
+        break;
+      default:
+        Serial.print("UNKNOWN, value: ");
+        Serial.println(RCC_OscInitStruct.PLL.PLLQ);
+        break;
+    }
 
+// Not all boards are supporting PLLR
 #if defined(STM32F410xx) || defined(STM32F446xx ) || defined(STM32F469xx) || defined(STM32F479xx) || defined(STM32F412Zx) || \
-    defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx) || defined(STM32F413xx) || defined(STM32F423xx)
+    defined(STM32F412Vx) || defined(STM32F412Rx) || defined(STM32F412Cx) || defined(STM32F413xx) || defined(STM32F423xx) || \
+    defined(STM32L452xx)
     Serial.print("  > PLLR: PLL division factor for I2S, SAI, SYSTEM, SPDIFRX clocks : ");
-    Serial.println(RCC_OscInitStruct.PLL.PLLR);
+    switch(RCC_OscInitStruct.PLL.PLLR)
+    {
+      case RCC_PLLR_DIV2:
+        Serial.println("RCC_PLLR_DIV2");
+        break;
+      case RCC_PLLR_DIV4:
+        Serial.println("RCC_PLLR_DIV4");
+        break;
+      case RCC_PLLR_DIV6:
+        Serial.println("RCC_PLLR_DIV6");
+        break;
+      case RCC_PLLR_DIV8:
+        Serial.println("RCC_PLLR_DIV8");
+        break;
+      default:
+        Serial.print("UNKNOWN, value: ");
+        Serial.println(RCC_OscInitStruct.PLL.PLLR);
+        break;
+    }
 #endif
- 
+
 }

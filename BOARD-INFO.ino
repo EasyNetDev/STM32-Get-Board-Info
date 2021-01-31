@@ -12,12 +12,13 @@ void setup()
     Serial.println("Start PIN Mode OUTPUT test ..");
     Serial.println((String) "Board name: " + BOARD_NAME);
     //Serial.println(BOARD_NAME);
-    Serial.println((String)"CPU Speed (F_CPU): " + (F_CPU / 1000) + "KHz");
-    Serial.println((String)"CPU Speed (SystemCoreClock): " + (SystemCoreClock / 1000) + "KHz");
-    Serial.println((String)"CPU Speed (HAL_RCC_GetSysClockFreq()): " + (HAL_RCC_GetSysClockFreq() / 1000) + "KHz");
-    Serial.println((String)"MSI Speed: " + (MSI_VALUE / 1000) + "KHz (is divided by 2 before going to PLL)");
-    Serial.println((String)"HSI Speed: " + (HSI_VALUE / 1000) + "KHz");
-    Serial.println((String)"HSE Speed: " + (HSE_VALUE / 1000) + "KHz");
+    Serial.println((String)"CPU Speed (F_CPU): " + (F_CPU / 1000000) + "MHz (" + (F_CPU / 1000) + "KHz)");
+    Serial.println((String)"CPU Speed (SystemCoreClock): " + (SystemCoreClock / 1000000) + "MHz (" + (SystemCoreClock / 1000) + "KHz)");
+    Serial.println((String)"CPU Speed (HAL_RCC_GetSysClockFreq()): " + (HAL_RCC_GetSysClockFreq() / 1000000) + "MHz (" + (HAL_RCC_GetSysClockFreq() / 1000) + "KHz)");
+    Serial.println("MSI/HSI/HSE are divided by 2 before going to PLL");
+    Serial.println((String)"MSI Speed: " + (MSI_VALUE / 1000000) + "MHz ("+ (MSI_VALUE / 1000) + "KHz)");
+    Serial.println((String)"HSI Speed: " + (HSI_VALUE / 1000000) + "MHz (" + (HSI_VALUE / 1000) + "KHz)");
+    Serial.println((String)"HSE Speed: " + (HSE_VALUE / 1000000) + "MHz (" + (HSE_VALUE / 1000) + "KHz)");
     Serial.println((String)"LSE Speed: " + LSE_VALUE + "Hz");
     Serial.println((String)"LSI Speed: " + LSI_VALUE + "Hz");
 
